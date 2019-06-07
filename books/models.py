@@ -10,6 +10,7 @@ class Book(models.Model):
     number_pages = models.IntegerField( default=1 )
     bookbinding = models.CharField(max_length=20, blank= True, null = True)
     genre = models.CharField(max_length=50)
+    status = models.CharField(max_length=10, blank= True, null= True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     
@@ -20,9 +21,14 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     birth_date = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
     death_date = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
+    nationality = models.CharField(max_length=20, blank= True, null= True)
+
 
 class Publisher(models.Model):
+    
     name = models.CharField(max_length=50)
 
+
 class Genre(models.Model):
-     name = models.CharField(max_length=30)
+    
+    name = models.CharField(max_length=30)
